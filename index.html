@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerForge PCs | Custom PC Consultations</title>
+    <style>
+        /* Global Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0c0c0e;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+        }
+
+        /* Navigation Bar */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background-color: #121214;
+            border-bottom: 1px solid #222225;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: #007acc;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #ffffff;
+        }
+
+        nav a {
+            color: #aaaaaa;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.2s ease;
+        }
+
+        nav a:hover {
+            color: #007acc;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 100px 5% 80px 5%;
+            text-align: center;
+            background: radial-gradient(circle at top, #1c2d3d 0%, #0c0c0e 70%);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 span {
+            color: #007acc;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #cccccc;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: #007acc;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #0062a3;
+        }
+
+        .cta-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Value Proposition Section */
+        .features {
+            padding: 40px 5% 60px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: #121214;
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid #222225;
+            text-align: center;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h3 {
+            color: #007acc;
+            margin-bottom: 12px;
+            font-size: 19px;
+        }
+
+        .feature-card p {
+            color: #aaaaaa;
+            font-size: 14px;
+        }
+
+        /* Portfolio / Gallery Section */
+        .gallery-section {
+            padding: 60px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-section h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .gallery-section p.subtitle {
+            text-align: center;
+            color: #aaaaaa;
+            margin-bottom: 40px;
+            font-size: 15px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .grid-item {
+            background-color: #121214;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #222225;
+        }
+
+        .grid-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item:hover img {
+            transform: scale(1.03);
+        }
+
+        .img-desc {
+            padding: 15px;
+            font-size: 14px;
+            color: #e0e0e0;
+            background-color: #121214;
+            border-top: 1px solid #222225;
+            font-weight: 500;
+        }
+
+        /* Sample Tier Blueprints Section */
+        .blueprints-section {
+            padding: 60px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .blueprints-section h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .blueprints-section p.subtitle {
+            text-align: center;
+            color: #aaaaaa;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        /* Dynamic Disclaimer Box */
+        .disclaimer-box {
+            background-color: #161b22;
+            border: 1px dashed #308bf2;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .disclaimer-box p {
+            font-size: 15px;
+            color: #e6edf3;
+        }
+
+        .disclaimer-box strong {
+            color: #308bf2;
+        }
+
+        .tier-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .tier-card {
+            background-color: #121214;
+            border: 1px solid #222225;
+            border-radius: 10px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .tier-card h3 {
+            font-size: 20px;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .tier-name {
+            font-size: 14px;
+            color: #007acc;
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .tier-price {
+            font-size: 24px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #222225;
+            padding-bottom: 10px;
+        }
+
+        .part-list {
+            list-style: none;
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 20px;
+        }
+
+        .part-list li {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .part-list li span.part-type {
+            color: #77777c;
+            font-weight: 600;
+            margin-right: 10px;
+            min-width: 80px;
+        }
+
+        .part-list li span.part-name {
+            text-align: right;
+            color: #e0e0e0;
+        }
+
+        /* Used Hardware Badge */
+        .used-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #f0883e;
+            color: #000000;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* Form Section Container */
+        .quote-form-section {
+            max-width: 600px;
+            margin: 60px auto 100px auto;
+            padding: 35px;
+            background-color: #121214;
+            border-radius: 12px;
+            border: 1px solid #222225;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .quote-form-section h2 {
+            margin-top: 0;
+            font-size: 26px;
+            color: #007acc;
+            margin-bottom: 8px;
+        }
+
+        .quote-form-section p {
+            color: #aaaaaa;
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        /* Form Element Styling */
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #e0e0e0;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 12px;
+            background-color: #1c1c1e;
+            border: 1px solid #333336;
+            border-radius: 6px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #007acc;
+            box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+        }
+
+        ::placeholder {
+            color: #55555a;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background-color: #007acc;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: #0062a3;
+        }
+
+        .submit-btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 5%;
+            color: #55555a;
+            font-size: 13px;
+            border-top: 1px solid #121214;
+            background-color: #09090b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">POWER<span>FORGE</span></div>
+        <nav>
+            <a href="#quote">Get Started</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Forge Your Ultimate <span>Gaming Rig</span></h1>
+        <p>Retail stores charge a massive premium for generic parts. Give me your exact budget, and I will optimize a custom blueprint that maximizes every single frame per second.</p>
+        <a href="#quote" class="cta-btn">Optimize My Build</a>
+    </section>
+
+    <section class="features">
+        <div class="feature-card">
+            <h3>Zero Performance Waste</h3>
+            <p>Every dollar goes directly into tier-one specs, memory sweet-spots, and highly efficient cooling components.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Tailored To Your Games</h3>
+            <p>Whether you need a locked 240 FPS for competitive esports or massive rendering power for editing, your list matches your exact goals.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Future-Proof Upgrade Paths</h3>
+            <p>No dead-end platforms. I select parts that ensure you can upgrade your system seamlessly down the road without replacing everything.</p>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <h2>Recent Builds</h2>
+        <p class="subtitle">A look inside my previous builds, optimized for maximum thermals and frame rates.</p>
+        
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="pc1.jpg" alt="PowerForge Custom Build 1">
+                <div class="img-desc">Optimized ARGB Thermal Management & Flow</div>
+            </div>
+            <div class="grid-item">
+                <img src="pc2.jpg" alt="PowerForge Custom Build 2">
+                <div class="img-desc">Clean Component Layout & Zero-Sag GPU Fit</div>
+            </div>
+            <div class="grid-item">
+                <img src="pc3.jpg" alt="PowerForge Custom Build 3">
+                <div class="img-desc">High-End Custom Neon Cable Integration</div>
+            </div>
+            <div class="grid-item">
+                <img src="pc4.jpg" alt="PowerForge Custom Build 4">
+                <div class="img-desc">Matte Black Stealth Shell Configuration</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="blueprints-section">
+        <h2>Sample Architecture Blueprints</h2>
+        <p class="subtitle">See what's rawly possible at benchmark market values.</p>
+
+        <div class="disclaimer-box">
+            <p><strong>Important Note:</strong> These configurations represent raw general performance baselines across standard price categories. They are <strong>not indicative</strong> of the final configuration I will architect for you. Your system blueprint will be entirely personalized based on your targeted frame counts, game library, aesthetic requests, and exact budget.</p>
+        </div>
+
+        <div class="tier-grid">
+            <div class="tier-card">
+                <span class="used-badge">Includes Used Parts</span>
+                <h3>Ultra Budget Entry</h3>
+                <span class="tier-name">Low-End Budget Fighter</span>
+                <div class="tier-price">$500 AUD</div>
+                <ul class="part-list">
+                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 4500</span></li>
+                    <li><span class="part-type">Cooler</span><span class="part-name">AMD Wraith Stock</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">Gigabyte A520M K V2</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">8GB DDR4-3200 CL22</span></li>
+                    <li><span class="part-type">Storage</span><span class="part-name">512GB NVMe M.2 SSD</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">GTX 1650 SUPER 4GB</span></li>
+                    <li><span class="part-type">Case</span><span class="part-name">Aerocool Interstellar ATX</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">Gigabyte P650SS 650W Silver</span></li>
+                </ul>
+            </div>
+
+            <div class="tier-card">
+                <h3>Mainstream Sweetspot</h3>
+                <span class="tier-name">Pure Value Performance</span>
+                <div class="tier-price">$1,000 AUD</div>
+                <ul class="part-list">
+                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 5600</span></li>
+                    <li><span class="part-type">Cooler</span><span class="part-name">AMD Wraith Stock</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">Asus PRIME B550M-A WIFI II</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">8GB DDR4-3200 CL16</span></li>
+                    <li><span class="part-type">Storage</span><span class="part-name">512GB NVMe M.2 SSD</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">Gigabyte EAGLE RX 6600 8GB</span></li>
+                    <li><span class="part-type">Case</span><span class="part-name">Montech XR ATX Mid</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
+                </ul>
+            </div>
+
+            <div class="tier-card">
+                <h3>High-End Performance</h3>
+                <span class="tier-name">Competitive Framing</span>
+                <div class="tier-price">$1,500 AUD</div>
+                <ul class="part-list">
+                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 5500</span></li>
+                    <li><span class="part-type">Cooler</span><span class="part-name">Peerless Assassin 120 SE</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">Asus TUF B550-PLUS WIFI II</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">16GB (2x8GB) DDR4-3200 CL16</span></li>
+                    <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe PCIe 4.0 SSD</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">ASRock RX 7600 8GB</span></li>
+                    <li><span class="part-type">Case</span><span class="part-name">Phanteks Eclipse G370A</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
+                </ul>
+            </div>
+
+            <div class="tier-card">
+                <h3>Elite Power Engine</h3>
+                <span class="tier-name">Next-Gen AM5 Platform</span>
+                <div class="tier-price">$2,000 AUD</div>
+                <ul class="part-list">
+                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 7 9700X</span></li>
+                    <li><span class="part-type">Cooler</span><span class="part-name">Thermalright Aqua Elite V3 240</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">Gigabyte B850 EAGLE WIFI6E</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">64GB (2x32GB) DDR5-6000 CL38</span></li>
+                    <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe PCIe 4.0 SSD</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">Gigabyte RX 9060 XT 16GB</span></li>
+                    <li><span class="part-type">Case</span><span class="part-name">Montech XR ATX Mid</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
+                </ul>
+            </div>
+
+            <div class="tier-card">
+                <h3>Ultimate Enthusiast</h3>
+                <span class="tier-name">The Apex Weapon</span>
+                <div class="tier-price">$3,000 AUD</div>
+                <ul class="part-list">
+                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 7 9800X3D</span></li>
+                    <li><span class="part-type">Cooler</span><span class="part-name">Arctic Liquid Freezer III 360</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">MSI MAG B850 TOMAHAWK WIFI</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">96GB (2x48GB) DDR5-6000 CL30</span></li>
+                    <li><span class="part-type">Storage</span><span class="part-name">2TB NVMe PCIe 4.0 SSD</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">Gigabyte RX 9070 XT 16GB</span></li>
+                    <li><span class="part-type">Case</span><span class="part-name">Lian Li O11 Dynamic Mini V2</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-form-section" id="quote">
+        <h2>Get a Custom PC Quote</h2>
+        <p>Tell me what you need, and I'll optimize the perfect parts list for your budget.</p>
+        
+        <form action="#" method="POST">
+            <div class="form-group">
+                <label for="budget">What is your exact budget (AUD)?</label>
+                <input type="number" id="budget" name="budget" placeholder="e.g. 1500" required>
+            </div>
+
+            <div class="form-group">
+                <label for="use-case">What will you primarily use the PC for?</label>
+                <select id="use-case" name="use-case" required>
+                    <option value="" disabled selected>Select your main use...</option>
+                    <option value="esports">Competitive Esports (Fortnite, Valorant, high FPS)</option>
+                    <option value="aaa-gaming">4K / Heavy AAA Gaming (Cyberpunk, GTA, Max Settings)</option>
+                    <option value="streaming-editing">Streaming / Video Editing / Content Creation</option>
+                    <option value="general-school">General Use / Schoolwork / Light Gaming</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="aesthetic">Aesthetic Preference</label>
+                <select id="aesthetic" name="aesthetic" required>
+                    <option value="" disabled selected>Select a style...</option>
+                    <option value="stealth-black">Stealth Black (No RGB, clean and quiet)</option>
+                    <option value="all-white">All-White Build</option>
+                    <option value="max-rgb">Maximum RGB (Flashy lights, customizable)</option>
+                    <option value="performance-first">Performance First (All budget into specs, style doesn't matter)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="notes">Any specific requirements or specific games you play?</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="e.g. Needs Wi-Fi, mostly playing Warzone, prefer AMD over NVIDIA..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 PowerForge PCs. Expert Custom PC Consultation & Optimization.</p>
+    </footer>
+
+</body>
+</html>
