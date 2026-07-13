@@ -161,14 +161,14 @@
             gap: 20px;
         }
 
-        .grid-item {
+        .grid-container .grid-item {
             background-color: #121214;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid #222225;
         }
 
-        .grid-item img {
+        .grid-container .grid-item img {
             width: 100%;
             height: 250px;
             object-fit: cover;
@@ -176,7 +176,7 @@
             transition: transform 0.3s ease;
         }
 
-        .grid-item:hover img {
+        .grid-container .grid-item:hover img {
             transform: scale(1.03);
         }
 
@@ -557,7 +557,12 @@
         <h2>Get a Custom PC Quote</h2>
         <p>Tell me what you need, and I'll optimize the perfect parts list for your budget.</p>
         
-        <form action="#" method="POST">
+        <!-- Connected to Web3Forms Submission API -->
+        <form action="https://api.web3forms.com/submit" method="POST">
+            
+            <!-- Hidden Access Key -->
+            <input type="hidden" name="access_key" value="db7831c0-a938-437e-927b-af591e92d8e5">
+
             <div class="form-group">
                 <label for="budget">What is your exact budget (AUD)?</label>
                 <input type="number" id="budget" name="budget" placeholder="e.g. 1500" required>
