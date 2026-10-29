@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerForge PCs | Custom PC Consultations</title>
+    <title>PowerForge PCs | Custom PC Assembly & Consultation</title>
     <style>
         /* Global Reset & Base Styles */
         * {
@@ -43,6 +43,11 @@
             color: #ffffff;
         }
 
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
         nav a {
             color: #aaaaaa;
             text-decoration: none;
@@ -77,7 +82,7 @@
         .hero p {
             font-size: 18px;
             color: #cccccc;
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 30px auto;
         }
 
@@ -134,6 +139,102 @@
             font-size: 14px;
         }
 
+        /* Services & Pricing Section */
+        .services-section {
+            padding: 60px 5%;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .services-section h2 {
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+
+        .services-section p.subtitle {
+            text-align: center;
+            color: #aaaaaa;
+            margin-bottom: 40px;
+            font-size: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background-color: #121214;
+            border: 1px solid #222225;
+            border-radius: 10px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .service-card.highlight {
+            border-color: #007acc;
+            box-shadow: 0 0 20px rgba(0, 122, 204, 0.15);
+        }
+
+        .popular-tag {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: #007acc;
+            color: #ffffff;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .service-price {
+            font-size: 32px;
+            font-weight: 800;
+            color: #007acc;
+            margin-bottom: 15px;
+        }
+
+        .service-price span {
+            font-size: 14px;
+            color: #aaaaaa;
+            font-weight: 400;
+        }
+
+        .service-features {
+            list-style: none;
+            font-size: 14px;
+            color: #cccccc;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .service-features li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #007acc;
+            font-weight: bold;
+        }
+
         /* Portfolio / Gallery Section */
         .gallery-section {
             padding: 60px 5%;
@@ -157,7 +258,7 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
@@ -412,14 +513,16 @@
     <header>
         <div class="logo">POWER<span>FORGE</span></div>
         <nav>
+            <a href="#services">Services & Pricing</a>
+            <a href="#blueprints">Blueprints</a>
             <a href="#quote">Get Started</a>
         </nav>
     </header>
 
     <section class="hero">
         <h1>Forge Your Ultimate <span>Gaming Rig</span></h1>
-        <p>Retail stores charge a massive premium for generic parts. Give me your exact budget, and I will optimize a custom blueprint that maximizes every single frame per second.</p>
-        <a href="#quote" class="cta-btn">Optimize My Build</a>
+        <p>Retail builders mark up prebuilts with cheap components and high margins. Get a customized blueprint or custom assembly at a transparent flat rate.</p>
+        <a href="#quote" class="cta-btn">Get A Free Quote</a>
     </section>
 
     <section class="features">
@@ -437,9 +540,43 @@
         </div>
     </section>
 
+    <section class="services-section" id="services">
+        <h2>Assembly & Service Rates</h2>
+        <p class="subtitle">Fair, upfront pricing with no hidden retail markups on hardware.</p>
+
+        <div class="services-grid">
+            <div class="service-card highlight">
+                <span class="popular-tag">Most Popular</span>
+                <h3>Standard Custom Build</h3>
+                <div class="service-price">$75 <span>AUD flat fee</span></div>
+                <ul class="service-features">
+                    <li>Full hardware assembly & precision wiring</li>
+                    <li>Air-cooler or stock thermal setup</li>
+                    <li>Clean, flow-optimized cable routing</li>
+                    <li>POST & BIOS hardware verification test</li>
+                    <li>Component compatibility review</li>
+                </ul>
+                <a href="#quote" class="cta-btn" style="text-align: center;">Choose Standard</a>
+            </div>
+
+            <div class="service-card">
+                <h3>Advanced System Package</h3>
+                <div class="service-price">$110 <span>AUD flat fee</span></div>
+                <ul class="service-features">
+                    <li>Everything in Standard Build</li>
+                    <li>All-In-One (AIO) Liquid Cooler installation</li>
+                    <li>Windows OS setup & motherboard driver flashing</li>
+                    <li>EXPO/XMP RAM speed optimization</li>
+                    <li>Thermal stress testing & fan curve tuning</li>
+                </ul>
+                <a href="#quote" class="cta-btn" style="text-align: center; background-color: #222225;">Choose Advanced</a>
+            </div>
+        </div>
+    </section>
+
     <section class="gallery-section">
         <h2>Recent Builds</h2>
-        <p class="subtitle">A look inside my previous builds, optimized for maximum thermals and frame rates.</p>
+        <p class="subtitle">A look inside previous builds, optimized for thermals and frame rates.</p>
         
         <div class="grid-container">
             <div class="grid-item">
@@ -461,7 +598,7 @@
         </div>
     </section>
 
-    <section class="blueprints-section">
+    <section class="blueprints-section" id="blueprints">
         <h2>Sample Architecture Blueprints</h2>
         <p class="subtitle">See what's rawly possible at benchmark market values.</p>
 
@@ -479,11 +616,11 @@
                     <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 4500</span></li>
                     <li><span class="part-type">Cooler</span><span class="part-name">AMD Wraith Stock</span></li>
                     <li><span class="part-type">Mobo</span><span class="part-name">Gigabyte A520M K V2</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">8GB DDR4-3200 CL22</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">16GB (2x8GB) DDR4-3200</span></li>
                     <li><span class="part-type">Storage</span><span class="part-name">512GB NVMe M.2 SSD</span></li>
                     <li><span class="part-type">GPU</span><span class="part-name">GTX 1650 SUPER 4GB</span></li>
                     <li><span class="part-type">Case</span><span class="part-name">Aerocool Interstellar ATX</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">Gigabyte P650SS 650W Silver</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">550W 80+ Bronze</span></li>
                 </ul>
             </div>
 
@@ -495,8 +632,8 @@
                     <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 5600</span></li>
                     <li><span class="part-type">Cooler</span><span class="part-name">AMD Wraith Stock</span></li>
                     <li><span class="part-type">Mobo</span><span class="part-name">Asus PRIME B550M-A WIFI II</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">8GB DDR4-3200 CL16</span></li>
-                    <li><span class="part-type">Storage</span><span class="part-name">512GB NVMe M.2 SSD</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">16GB (2x8GB) DDR4-3200 CL16</span></li>
+                    <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe M.2 SSD</span></li>
                     <li><span class="part-type">GPU</span><span class="part-name">Gigabyte EAGLE RX 6600 8GB</span></li>
                     <li><span class="part-type">Case</span><span class="part-name">Montech XR ATX Mid</span></li>
                     <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
@@ -508,12 +645,12 @@
                 <span class="tier-name">Competitive Framing</span>
                 <div class="tier-price">$1,500 AUD</div>
                 <ul class="part-list">
-                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 5500</span></li>
+                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 7600</span></li>
                     <li><span class="part-type">Cooler</span><span class="part-name">Peerless Assassin 120 SE</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">Asus TUF B550-PLUS WIFI II</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">16GB (2x8GB) DDR4-3200 CL16</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">MSI PRO B650M-A WIFI</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">32GB (2x16GB) DDR5-6000 CL30</span></li>
                     <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe PCIe 4.0 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">ASRock RX 7600 8GB</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">AMD Radeon RX 7600 XT 16GB</span></li>
                     <li><span class="part-type">Case</span><span class="part-name">Phanteks Eclipse G370A</span></li>
                     <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
                 </ul>
@@ -524,14 +661,14 @@
                 <span class="tier-name">Next-Gen AM5 Platform</span>
                 <div class="tier-price">$2,000 AUD</div>
                 <ul class="part-list">
-                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 7 9700X</span></li>
+                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 7 7800X3D / 9700X</span></li>
                     <li><span class="part-type">Cooler</span><span class="part-name">Thermalright Aqua Elite V3 240</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">Gigabyte B850 EAGLE WIFI6E</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">64GB (2x32GB) DDR5-6000 CL38</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">Gigabyte B650 / B850 EAGLE</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">32GB (2x16GB) DDR5-6000 CL30</span></li>
                     <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe PCIe 4.0 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">Gigabyte RX 9060 XT 16GB</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">RX 7800 XT / RTX 4070 12GB</span></li>
                     <li><span class="part-type">Case</span><span class="part-name">Montech XR ATX Mid</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">750W 80+ Gold ATX 3.0</span></li>
                 </ul>
             </div>
 
@@ -542,12 +679,12 @@
                 <ul class="part-list">
                     <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 7 9800X3D</span></li>
                     <li><span class="part-type">Cooler</span><span class="part-name">Arctic Liquid Freezer III 360</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">MSI MAG B850 TOMAHAWK WIFI</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">96GB (2x48GB) DDR5-6000 CL30</span></li>
+                    <li><span class="part-type">Mobo</span><span class="part-name">MSI MAG B650 / B850 TOMAHAWK</span></li>
+                    <li><span class="part-type">RAM</span><span class="part-name">64GB (2x32GB) DDR5-6000 CL30</span></li>
                     <li><span class="part-type">Storage</span><span class="part-name">2TB NVMe PCIe 4.0 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">Gigabyte RX 9070 XT 16GB</span></li>
+                    <li><span class="part-type">GPU</span><span class="part-name">RTX 4070 Ti Super / RX 7900 XTX</span></li>
                     <li><span class="part-type">Case</span><span class="part-name">Lian Li O11 Dynamic Mini V2</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
+                    <li><span class="part-type">PSU</span><span class="part-name">850W 80+ Gold PCIe 5.0</span></li>
                 </ul>
             </div>
         </div>
@@ -555,13 +692,23 @@
 
     <section class="quote-form-section" id="quote">
         <h2>Get a Custom PC Quote</h2>
-        <p>Tell me what you need, and I'll optimize the perfect parts list for your budget.</p>
+        <p>Tell me what you need, and I'll optimize the perfect parts list for your budget or coordinate your build assembly.</p>
         
         <!-- Connected to Web3Forms Submission API -->
         <form action="https://api.web3forms.com/submit" method="POST">
             
             <!-- Hidden Access Key -->
             <input type="hidden" name="access_key" value="db7831c0-a938-437e-927b-af591e92d8e5">
+
+            <div class="form-group">
+                <label for="service-type">Service Required</label>
+                <select id="service-type" name="service-type" required>
+                    <option value="" disabled selected>Select service...</option>
+                    <option value="full-build">Full Custom Build Service ($75 labor + parts)</option>
+                    <option value="advanced-build">Advanced Build + OS/Tuning Package ($110)</option>
+                    <option value="parts-list-only">Free Custom Blueprint / Advice Only</option>
+                </select>
+            </div>
 
             <div class="form-group">
                 <label for="budget">What is your exact budget (AUD)?</label>
