@@ -290,125 +290,6 @@
             font-weight: 500;
         }
 
-        /* Sample Tier Blueprints Section */
-        .blueprints-section {
-            padding: 60px 5%;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .blueprints-section h2 {
-            font-size: 28px;
-            text-align: center;
-            margin-bottom: 10px;
-            color: #ffffff;
-        }
-
-        .blueprints-section p.subtitle {
-            text-align: center;
-            color: #aaaaaa;
-            margin-bottom: 30px;
-            font-size: 15px;
-        }
-
-        /* Dynamic Disclaimer Box */
-        .disclaimer-box {
-            background-color: #161b22;
-            border: 1px dashed #308bf2;
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .disclaimer-box p {
-            font-size: 15px;
-            color: #e6edf3;
-        }
-
-        .disclaimer-box strong {
-            color: #308bf2;
-        }
-
-        .tier-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 25px;
-        }
-
-        .tier-card {
-            background-color: #121214;
-            border: 1px solid #222225;
-            border-radius: 10px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-        }
-
-        .tier-card h3 {
-            font-size: 20px;
-            color: #ffffff;
-            margin-bottom: 5px;
-        }
-
-        .tier-name {
-            font-size: 14px;
-            color: #007acc;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 15px;
-        }
-
-        .tier-price {
-            font-size: 24px;
-            font-weight: 800;
-            color: #ffffff;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #222225;
-            padding-bottom: 10px;
-        }
-
-        .part-list {
-            list-style: none;
-            font-size: 14px;
-            color: #cccccc;
-            margin-bottom: 20px;
-        }
-
-        .part-list li {
-            margin-bottom: 8px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .part-list li span.part-type {
-            color: #77777c;
-            font-weight: 600;
-            margin-right: 10px;
-            min-width: 80px;
-        }
-
-        .part-list li span.part-name {
-            text-align: right;
-            color: #e0e0e0;
-        }
-
-        /* Used Hardware Badge */
-        .used-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: #f0883e;
-            color: #000000;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 4px 8px;
-            border-radius: 4px;
-            text-transform: uppercase;
-        }
-
         /* Form Section Container */
         .quote-form-section {
             max-width: 600px;
@@ -514,7 +395,7 @@
         <div class="logo">POWER<span>FORGE</span></div>
         <nav>
             <a href="#services">Services & Pricing</a>
-            <a href="#blueprints">Blueprints</a>
+            <a href="#gallery">Recent Builds</a>
             <a href="#quote">Get Started</a>
         </nav>
     </header>
@@ -574,7 +455,7 @@
         </div>
     </section>
 
-    <section class="gallery-section">
+    <section class="gallery-section" id="gallery">
         <h2>Recent Builds</h2>
         <p class="subtitle">A look inside previous builds, optimized for thermals and frame rates.</p>
         
@@ -594,98 +475,6 @@
             <div class="grid-item">
                 <img src="pc4.jpg" alt="PowerForge Custom Build 4">
                 <div class="img-desc">Matte Black Stealth Shell Configuration</div>
-            </div>
-        </div>
-    </section>
-
-    <section class="blueprints-section" id="blueprints">
-        <h2>Sample Architecture Blueprints</h2>
-        <p class="subtitle">See what's rawly possible at benchmark market values.</p>
-
-        <div class="disclaimer-box">
-            <p><strong>Important Note:</strong> These configurations represent raw general performance baselines across standard price categories. They are <strong>not indicative</strong> of the final configuration I will architect for you. Your system blueprint will be entirely personalized based on your targeted frame counts, game library, aesthetic requests, and exact budget.</p>
-        </div>
-
-        <div class="tier-grid">
-            <div class="tier-card">
-                <span class="used-badge">Includes Used Parts</span>
-                <h3>Ultra Budget Entry</h3>
-                <span class="tier-name">Low-End Budget Fighter</span>
-                <div class="tier-price">$500 AUD</div>
-                <ul class="part-list">
-                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 4500</span></li>
-                    <li><span class="part-type">Cooler</span><span class="part-name">AMD Wraith Stock</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">Gigabyte A520M K V2</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">16GB (2x8GB) DDR4-3200</span></li>
-                    <li><span class="part-type">Storage</span><span class="part-name">512GB NVMe M.2 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">GTX 1650 SUPER 4GB</span></li>
-                    <li><span class="part-type">Case</span><span class="part-name">Aerocool Interstellar ATX</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">550W 80+ Bronze</span></li>
-                </ul>
-            </div>
-
-            <div class="tier-card">
-                <h3>Mainstream Sweetspot</h3>
-                <span class="tier-name">Pure Value Performance</span>
-                <div class="tier-price">$1,000 AUD</div>
-                <ul class="part-list">
-                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 5600</span></li>
-                    <li><span class="part-type">Cooler</span><span class="part-name">AMD Wraith Stock</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">Asus PRIME B550M-A WIFI II</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">16GB (2x8GB) DDR4-3200 CL16</span></li>
-                    <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe M.2 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">Gigabyte EAGLE RX 6600 8GB</span></li>
-                    <li><span class="part-type">Case</span><span class="part-name">Montech XR ATX Mid</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
-                </ul>
-            </div>
-
-            <div class="tier-card">
-                <h3>High-End Performance</h3>
-                <span class="tier-name">Competitive Framing</span>
-                <div class="tier-price">$1,500 AUD</div>
-                <ul class="part-list">
-                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 5 7600</span></li>
-                    <li><span class="part-type">Cooler</span><span class="part-name">Peerless Assassin 120 SE</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">MSI PRO B650M-A WIFI</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">32GB (2x16GB) DDR5-6000 CL30</span></li>
-                    <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe PCIe 4.0 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">AMD Radeon RX 7600 XT 16GB</span></li>
-                    <li><span class="part-type">Case</span><span class="part-name">Phanteks Eclipse G370A</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">MSI MAG A650BN 650W Bronze</span></li>
-                </ul>
-            </div>
-
-            <div class="tier-card">
-                <h3>Elite Power Engine</h3>
-                <span class="tier-name">Next-Gen AM5 Platform</span>
-                <div class="tier-price">$2,000 AUD</div>
-                <ul class="part-list">
-                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 7 7800X3D / 9700X</span></li>
-                    <li><span class="part-type">Cooler</span><span class="part-name">Thermalright Aqua Elite V3 240</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">Gigabyte B650 / B850 EAGLE</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">32GB (2x16GB) DDR5-6000 CL30</span></li>
-                    <li><span class="part-type">Storage</span><span class="part-name">1TB NVMe PCIe 4.0 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">RX 7800 XT / RTX 4070 12GB</span></li>
-                    <li><span class="part-type">Case</span><span class="part-name">Montech XR ATX Mid</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">750W 80+ Gold ATX 3.0</span></li>
-                </ul>
-            </div>
-
-            <div class="tier-card">
-                <h3>Ultimate Enthusiast</h3>
-                <span class="tier-name">The Apex Weapon</span>
-                <div class="tier-price">$3,000 AUD</div>
-                <ul class="part-list">
-                    <li><span class="part-type">CPU</span><span class="part-name">AMD Ryzen 7 9800X3D</span></li>
-                    <li><span class="part-type">Cooler</span><span class="part-name">Arctic Liquid Freezer III 360</span></li>
-                    <li><span class="part-type">Mobo</span><span class="part-name">MSI MAG B650 / B850 TOMAHAWK</span></li>
-                    <li><span class="part-type">RAM</span><span class="part-name">64GB (2x32GB) DDR5-6000 CL30</span></li>
-                    <li><span class="part-type">Storage</span><span class="part-name">2TB NVMe PCIe 4.0 SSD</span></li>
-                    <li><span class="part-type">GPU</span><span class="part-name">RTX 4070 Ti Super / RX 7900 XTX</span></li>
-                    <li><span class="part-type">Case</span><span class="part-name">Lian Li O11 Dynamic Mini V2</span></li>
-                    <li><span class="part-type">PSU</span><span class="part-name">850W 80+ Gold PCIe 5.0</span></li>
-                </ul>
             </div>
         </div>
     </section>
