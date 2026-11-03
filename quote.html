@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PowerForge PCs | Custom PC Assembly & Consultation</title>
+    <title>Get a Quote | PowerForge PCs</title>
     <style>
         /* Global Reset & Base Styles */
         * {
@@ -17,7 +17,9 @@
             color: #f1f1f5;
             font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navigation Bar */
@@ -68,330 +70,118 @@
             color: #38bdf8;
         }
 
-        .nav-cta {
-            background-color: rgba(56, 189, 248, 0.1);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            padding: 8px 18px;
-            border-radius: 6px;
-            color: #38bdf8 !important;
-            font-weight: 600;
-            transition: all 0.2s ease;
+        /* Form Section Container */
+        .quote-form-section {
+            max-width: 640px;
+            width: 90%;
+            margin: 60px auto 100px auto;
+            padding: 45px 40px;
+            background: linear-gradient(145deg, #111116 0%, #0d0d10 100%);
+            border-radius: 16px;
+            border: 1px solid rgba(56, 189, 248, 0.15);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            flex-grow: 1;
         }
 
-        .nav-cta:hover {
-            background-color: #38bdf8;
-            color: #070709 !important;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 120px 6% 100px 6%;
-            text-align: center;
-            background: radial-gradient(circle at 50% 20%, rgba(14, 116, 144, 0.18) 0%, rgba(7, 7, 9, 0) 70%);
-            position: relative;
-        }
-
-        .hero h1 {
-            font-size: clamp(38px, 5vw, 60px);
+        .quote-form-section h2 {
+            margin-top: 0;
+            font-size: 28px;
+            color: #ffffff;
+            margin-bottom: 10px;
             font-weight: 800;
-            margin-bottom: 20px;
-            line-height: 1.15;
-            letter-spacing: -1px;
+            letter-spacing: -0.5px;
         }
 
-        .hero h1 span {
-            background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .quote-form-section h2 span {
+            color: #38bdf8;
         }
 
-        .hero p {
-            font-size: clamp(16px, 1.8vw, 19px);
+        .quote-form-section p {
             color: #94a3b8;
-            max-width: 680px;
-            margin: 0 auto 35px auto;
-            line-height: 1.7;
+            font-size: 15px;
+            margin-bottom: 30px;
+            line-height: 1.6;
         }
 
-        .cta-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px 34px;
+        /* Form Element Styling */
+        .form-group {
+            margin-bottom: 22px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #e2e8f0;
+            letter-spacing: 0.2px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 13px 16px;
+            background-color: #17171c;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }
+
+        .form-group input:hover,
+        .form-group select:hover,
+        .form-group textarea:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #38bdf8;
+            background-color: #1a1a22;
+            box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+        }
+
+        ::placeholder {
+            color: #64748b;
+        }
+
+        .form-group select {
+            cursor: pointer;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 110px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
             background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
             color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
+            border: none;
             border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
             box-shadow: 0 4px 20px rgba(2, 132, 199, 0.35);
             transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+            margin-top: 10px;
         }
 
-        .cta-btn:hover {
+        .submit-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(2, 132, 199, 0.5);
             background: linear-gradient(135deg, #0369a1 0%, #075985 100%);
         }
 
-        .cta-btn:active {
+        .submit-btn:active {
             transform: translateY(0);
-        }
-
-        /* Value Proposition Section */
-        .features {
-            padding: 50px 6% 80px 6%;
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 24px;
-        }
-
-        .feature-card {
-            background: linear-gradient(145deg, #111116 0%, #0d0d10 100%);
-            padding: 35px 30px;
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: transform 0.25s ease, border-color 0.25s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #38bdf8, transparent);
-            opacity: 0;
-            transition: opacity 0.25s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-6px);
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-
-        .feature-card:hover::before {
-            opacity: 1;
-        }
-
-        .feature-card h3 {
-            color: #38bdf8;
-            margin-bottom: 12px;
-            font-size: 20px;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: #94a3b8;
-            font-size: 14.5px;
-            line-height: 1.6;
-        }
-
-        /* Services & Pricing Section */
-        .services-section {
-            padding: 80px 6%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .services-section h2 {
-            font-size: clamp(28px, 3.5vw, 36px);
-            text-align: center;
-            margin-bottom: 12px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .services-section p.subtitle {
-            text-align: center;
-            color: #94a3b8;
-            margin-bottom: 50px;
-            font-size: 16px;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            align-items: stretch;
-        }
-
-        .service-card {
-            background: linear-gradient(145deg, #111116 0%, #0d0d10 100%);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 16px;
-            padding: 40px 35px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-            transition: transform 0.25s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-card.highlight {
-            border: 1px solid #0284c7;
-            box-shadow: 0 0 35px rgba(2, 132, 199, 0.18), 0 15px 35px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(145deg, #131720 0%, #0d0d10 100%);
-        }
-
-        .popular-tag {
-            position: absolute;
-            top: -14px;
-            right: 25px;
-            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-            color: #ffffff;
-            font-size: 11px;
-            font-weight: 700;
-            padding: 5px 14px;
-            border-radius: 20px;
-            text-transform: uppercase;
-            letter-spacing: 0.8px;
-            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.4);
-        }
-
-        .service-card h3 {
-            font-size: 24px;
-            color: #ffffff;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .service-price {
-            font-size: 38px;
-            font-weight: 800;
-            color: #38bdf8;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: baseline;
-            gap: 6px;
-        }
-
-        .service-price span {
-            font-size: 14px;
-            color: #94a3b8;
-            font-weight: 500;
-        }
-
-        .service-features {
-            list-style: none;
-            font-size: 14.5px;
-            color: #cbd5e1;
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
-
-        .service-features li {
-            margin-bottom: 12px;
-            padding-left: 24px;
-            position: relative;
-        }
-
-        .service-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: #38bdf8;
-            font-weight: 800;
-        }
-
-        .service-card .cta-btn {
-            width: 100%;
-        }
-
-        .service-card .secondary-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 15px 34px;
-            background-color: rgba(255, 255, 255, 0.05);
-            color: #f1f1f5;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 15px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.2s ease;
-        }
-
-        .service-card .secondary-btn:hover {
-            background-color: rgba(255, 255, 255, 0.09);
-            border-color: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-        }
-
-        /* Portfolio / Gallery Section */
-        .gallery-section {
-            padding: 80px 6% 120px 6%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .gallery-section h2 {
-            font-size: clamp(28px, 3.5vw, 36px);
-            text-align: center;
-            margin-bottom: 12px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-        }
-
-        .gallery-section p.subtitle {
-            text-align: center;
-            color: #94a3b8;
-            margin-bottom: 50px;
-            font-size: 16px;
-        }
-
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
-
-        .grid-container .grid-item {
-            background: linear-gradient(145deg, #111116 0%, #0d0d10 100%);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.06);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .grid-container .grid-item:hover {
-            transform: translateY(-6px);
-            border-color: rgba(56, 189, 248, 0.3);
-        }
-
-        .grid-container .grid-item img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.4s ease;
-        }
-
-        .grid-container .grid-item:hover img {
-            transform: scale(1.05);
-        }
-
-        .img-desc {
-            padding: 18px 20px;
-            font-size: 14px;
-            color: #e2e8f0;
-            background: linear-gradient(145deg, #111116 0%, #0d0d10 100%);
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
-            font-weight: 600;
         }
 
         /* Footer */
@@ -402,19 +192,7 @@
             font-size: 13.5px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             background-color: #050507;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            header {
-                padding: 18px 5%;
-            }
-            nav {
-                gap: 16px;
-            }
-            .hero {
-                padding: 80px 5% 60px 5%;
-            }
+            margin-top: auto;
         }
     </style>
 </head>
@@ -423,94 +201,88 @@
     <header>
         <a href="index.html" class="logo">POWER<span>FORGE</span></a>
         <nav>
-            <a href="#services">Services & Pricing</a>
-            <a href="#gallery">Recent Builds</a>
-            <a href="quote.html" class="nav-cta">Get Started</a>
+            <a href="index.html#services">Services & Pricing</a>
+            <a href="index.html#gallery">Recent Builds</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <h1>Forge Your Ultimate <span>Gaming Rig</span></h1>
-        <p>Retail builders mark up prebuilts with cheap components and high margins. Get a customized blueprint or custom assembly at a transparent flat rate.</p>
-        <a href="quote.html" class="cta-btn">Get A Free Quote</a>
-    </section>
-
-    <section class="features">
-        <div class="feature-card">
-            <h3>Zero Performance Waste</h3>
-            <p>Every dollar goes directly into tier-one specs, memory sweet-spots, and highly efficient cooling components.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Tailored To Your Games</h3>
-            <p>Whether you need a locked 240 FPS for competitive esports or massive rendering power for editing, your list matches your exact goals.</p>
-        </div>
-        <div class="feature-card">
-            <h3>Future-Proof Upgrade Paths</h3>
-            <p>No dead-end platforms. I select parts that ensure you can upgrade your system seamlessly down the road without replacing everything.</p>
-        </div>
-    </section>
-
-    <section class="services-section" id="services">
-        <h2>Assembly & Service Rates</h2>
-        <p class="subtitle">Fair, upfront pricing with no hidden retail markups on hardware.</p>
-
-        <div class="services-grid">
-            <div class="service-card highlight">
-                <span class="popular-tag">Most Popular</span>
-                <h3>Standard Custom Build</h3>
-                <div class="service-price">$75 <span>AUD flat fee</span></div>
-                <ul class="service-features">
-                    <li>Full hardware assembly & precision wiring</li>
-                    <li>Air-cooler or stock thermal setup</li>
-                    <li>Clean, flow-optimized cable routing</li>
-                    <li>POST & BIOS hardware verification test</li>
-                    <li>Component compatibility review</li>
-                </ul>
-                <a href="quote.html?tier=full-build" class="cta-btn">Choose Standard</a>
-            </div>
-
-            <div class="service-card">
-                <h3>Advanced System Package</h3>
-                <div class="service-price">$110 <span>AUD flat fee</span></div>
-                <ul class="service-features">
-                    <li>Everything in Standard Build</li>
-                    <li>All-In-One (AIO) Liquid Cooler installation</li>
-                    <li>Windows OS setup & motherboard driver flashing</li>
-                    <li>EXPO/XMP RAM speed optimization</li>
-                    <li>Thermal stress testing & fan curve tuning</li>
-                </ul>
-                <a href="quote.html?tier=advanced-build" class="secondary-btn">Choose Advanced</a>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery-section" id="gallery">
-        <h2>Recent Builds</h2>
-        <p class="subtitle">A look inside previous builds, optimized for thermals and frame rates.</p>
+    <section class="quote-form-section">
+        <h2>Request a Custom <span>Build</span></h2>
+        <p>Tell me what you need, and I'll coordinate your build assembly and component selection.</p>
         
-        <div class="grid-container">
-            <div class="grid-item">
-                <img src="pc1.jpg" alt="PowerForge Custom Build 1">
-                <div class="img-desc">Optimized ARGB Thermal Management & Flow</div>
+        <!-- Connected to Web3Forms Submission API -->
+        <form action="https://api.web3forms.com/submit" method="POST">
+            
+            <!-- Hidden Access Key -->
+            <input type="hidden" name="access_key" value="db7831c0-a938-437e-927b-af591e92d8e5">
+
+            <div class="form-group">
+                <label for="service-type">Service Required</label>
+                <select id="service-type" name="service-type" required>
+                    <option value="" disabled selected>Select service...</option>
+                    <option value="full-build">Full Custom Build Service ($75 labor + parts)</option>
+                    <option value="advanced-build">Advanced Build + OS/Tuning Package ($110)</option>
+                </select>
             </div>
-            <div class="grid-item">
-                <img src="pc2.jpg" alt="PowerForge Custom Build 2">
-                <div class="img-desc">Clean Component Layout & Zero-Sag GPU Fit</div>
+
+            <div class="form-group">
+                <label for="budget">What is your exact budget (AUD)?</label>
+                <input type="number" id="budget" name="budget" placeholder="e.g. 1500" required>
             </div>
-            <div class="grid-item">
-                <img src="pc3.jpg" alt="PowerForge Custom Build 3">
-                <div class="img-desc">High-End Custom Neon Cable Integration</div>
+
+            <div class="form-group">
+                <label for="use-case">What will you primarily use the PC for?</label>
+                <select id="use-case" name="use-case" required>
+                    <option value="" disabled selected>Select your main use...</option>
+                    <option value="esports">Competitive Esports (Fortnite, Valorant, high FPS)</option>
+                    <option value="aaa-gaming">4K / Heavy AAA Gaming (Cyberpunk, GTA, Max Settings)</option>
+                    <option value="streaming-editing">Streaming / Video Editing / Content Creation</option>
+                    <option value="general-school">General Use / Schoolwork / Light Gaming</option>
+                </select>
             </div>
-            <div class="grid-item">
-                <img src="pc4.jpg" alt="PowerForge Custom Build 4">
-                <div class="img-desc">Matte Black Stealth Shell Configuration</div>
+
+            <div class="form-group">
+                <label for="aesthetic">Aesthetic Preference</label>
+                <select id="aesthetic" name="aesthetic" required>
+                    <option value="" disabled selected>Select a style...</option>
+                    <option value="stealth-black">Stealth Black (No RGB, clean and quiet)</option>
+                    <option value="all-white">All-White Build</option>
+                    <option value="max-rgb">Maximum RGB (Flashy lights, customizable)</option>
+                    <option value="performance-first">Performance First (All budget into specs, style doesn't matter)</option>
+                </select>
             </div>
-        </div>
+
+            <div class="form-group">
+                <label for="notes">Any specific requirements or specific games you play?</label>
+                <textarea id="notes" name="notes" rows="4" placeholder="e.g. Needs Wi-Fi, mostly playing Warzone, prefer AMD over NVIDIA..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Your Email Address</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
     </section>
 
     <footer>
         <p>&copy; 2026 PowerForge PCs. Expert Custom PC Consultation & Optimization.</p>
     </footer>
+
+      <!-- JavaScript to autofill tier from URL parameter -->
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const tierParam = urlParams.get('tier');
+            if (tierParam) {
+                const serviceSelect = document.getElementById('service-type');
+                if (serviceSelect) {
+                    serviceSelect.value = tierParam;
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
