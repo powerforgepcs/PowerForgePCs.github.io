@@ -331,7 +331,7 @@
             color: #ffffff;
         }
 
-        /* Portfolio / Gallery Section */
+        /* Portfolio / Gallery Section with Hover Pop-up Spec Inspector */
         .gallery-section {
             padding: 80px 6% 120px 6%;
             max-width: 1200px;
@@ -365,24 +365,86 @@
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.06);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            position: relative;
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .grid-container .grid-item:hover {
             transform: translateY(-6px);
-            border-color: rgba(56, 189, 248, 0.3);
+            border-color: rgba(56, 189, 248, 0.4);
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 240px;
+            overflow: hidden;
         }
 
         .grid-container .grid-item img {
             width: 100%;
-            height: 240px;
+            height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease, filter 0.4s ease;
         }
 
         .grid-container .grid-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.06);
+            filter: brightness(0.6);
+        }
+
+        /* Interactive Spec Pop-up Overlay */
+        .spec-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(7, 7, 9, 0.88);
+            backdrop-filter: blur(6px);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 24px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            z-index: 10;
+        }
+
+        .grid-container .grid-item:hover .spec-overlay {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .spec-overlay h4 {
+            color: #38bdf8;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+        }
+
+        .spec-overlay ul {
+            list-style: none;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .spec-overlay ul li {
+            margin-bottom: 6px;
+            position: relative;
+            padding-left: 16px;
+        }
+
+        .spec-overlay ul li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #38bdf8;
+            font-weight: bold;
         }
 
         .img-desc {
@@ -486,23 +548,74 @@
 
     <section class="gallery-section" id="gallery">
         <h2>Recent Builds</h2>
-        <p class="subtitle">A look inside previous builds, optimized for thermals and frame rates.</p>
+        <p class="subtitle">Hover over any build to inspect custom hardware specifications and cooling configuration.</p>
         
         <div class="grid-container">
+            <!-- Build 1 -->
             <div class="grid-item">
-                <img src="pc1.jpg" alt="PowerForge Custom Build 1">
+                <div class="image-wrapper">
+                    <img src="pc1.jpg" alt="PowerForge Custom Build 1">
+                    <div class="spec-overlay">
+                        <h4>System Specs & Flow</h4>
+                        <ul>
+                            <li>AMD Ryzen 7 7800X3D</li>
+                            <li>NVIDIA RTX 4070 Ti Super</li>
+                            <li>32GB DDR5-6000 CL30 EXPO</li>
+                            <li>Positive Pressure ARGB Intake</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="img-desc">Optimized ARGB Thermal Management & Flow</div>
             </div>
+
+            <!-- Build 2 -->
             <div class="grid-item">
-                <img src="pc2.jpg" alt="PowerForge Custom Build 2">
+                <div class="image-wrapper">
+                    <img src="pc2.jpg" alt="PowerForge Custom Build 2">
+                    <div class="spec-overlay">
+                        <h4>Wiring & Structural Spec</h4>
+                        <ul>
+                            <li>Intel Core i5-13600KF</li>
+                            <li>NVIDIA RTX 4070 Dual Fan</li>
+                            <li>Zero-Sag GPU Bracing Mount</li>
+                            <li>Custom Comb Cable Routing</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="img-desc">Clean Component Layout & Zero-Sag GPU Fit</div>
             </div>
+
+            <!-- Build 3 -->
             <div class="grid-item">
-                <img src="pc3.jpg" alt="PowerForge Custom Build 3">
+                <div class="image-wrapper">
+                    <img src="pc3.jpg" alt="PowerForge Custom Build 3">
+                    <div class="spec-overlay">
+                        <h4>Enthusiast RGB Setup</h4>
+                        <ul>
+                            <li>AMD Ryzen 9 7900X</li>
+                            <li>NVIDIA RTX 4080 Super OC</li>
+                            <li>Lian Li Strimer Neon Cabling</li>
+                            <li>360mm AIO Liquid Cooler</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="img-desc">High-End Custom Neon Cable Integration</div>
             </div>
+
+            <!-- Build 4 -->
             <div class="grid-item">
-                <img src="pc4.jpg" alt="PowerForge Custom Build 4">
+                <div class="image-wrapper">
+                    <img src="pc4.jpg" alt="PowerForge Custom Build 4">
+                    <div class="spec-overlay">
+                        <h4>Stealth Silent Config</h4>
+                        <ul>
+                            <li>Intel Core i7-14700K</li>
+                            <li>NVIDIA RTX 4070 Ti (No RGB)</li>
+                            <li>Noctua NH-D15 Chromax Black</li>
+                            <li>Sound-Damped Steel Chassis</li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="img-desc">Matte Black Stealth Shell Configuration</div>
             </div>
         </div>
